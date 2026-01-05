@@ -1,5 +1,4 @@
-#ifndef ARGHOLDER_HPP
-#define ARGHOLDER_HPP
+#pragma once
 
 #include <iostream>
 #include <vector>
@@ -30,5 +29,3 @@ private:
 	inline static std::vector<std::string> m_Args;
 	inline static int m_iCurrentArg;
 };
-
-#endif // ARGHOLDER_HPP
