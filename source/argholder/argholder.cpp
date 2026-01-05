@@ -1,7 +1,5 @@
 #include "argholder.hpp"
 
-std::vector<std::string> ArgHolder::m_Args;
-int ArgHolder::m_iCurrentArg;
 
 void ArgHolder::SetupArgs(int _iArgc, const char **_ppArgv) {
 	for (int i = 1; i < _iArgc; i++) {

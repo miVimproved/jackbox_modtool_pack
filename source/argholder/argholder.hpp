@@ -14,7 +14,7 @@ public:
 	static T GetNext(std::string _sPrompt) {
 		// If they want a string, just give it.
 		// Templates hurt my brain and this f*cking works.
-		if (typeid(T) == typeid(std::string)) {
+		if constexpr (std::is_same<T, std::string>::value) {
 			return GetNextInput(_sPrompt);
 		}
 
@@ -27,8 +27,8 @@ public:
 private:
 	static std::string GetNextInput(std::string _sPrompt);
 
-	static std::vector<std::string> m_Args;
-	static int m_iCurrentArg;
+	inline static std::vector<std::string> m_Args;
+	inline static int m_iCurrentArg;
 };
 
 #endif // ARGHOLDER_HPP

@@ -2,6 +2,7 @@
 cmake_minimum_required(VERSION 3.27)
 project(jackboxmodtoolpack)
 
+
 # Just grab every source file.
 file(GLOB_RECURSE SOURCES "source/*.cpp")
 
@@ -16,3 +17,6 @@ include_directories("source/")
 
 # Link with libs
 target_link_libraries(${PROJECT_NAME} PRIVATE nlohmann_json::nlohmann_json)
+
+# Already was using C++17, but clarifying.
+set_property(TARGET ${PROJECT_NAME} PROPERTY CXX_STANDARD 17)
