@@ -7,19 +7,16 @@
 #include "error.hpp"
 #include "liberinn/erinncsv.hpp"
 #include "games/6/td2/td2.hpp"
+#include "argholder/argholder.hpp"
 
 // Currently just as simple as I can make it while still working
 // to mod TMP 2's questions (just basic questions).
 int main(int _iArgc, const char** _ppArgv) {
-	// Verify usage.
-	if (_iArgc != 3) {
-		std::cerr << "Usage: ./jbmtp <source_file> <output_dir>." << std::endl;
-		return Error::IncorrectArgs;
-	}
+	ArgHolder::SetupArgs(_iArgc, _ppArgv);
 
 	// Grab filepaths.
-	std::string sSourceFile = _ppArgv[1];
-	std::string sOutDir = _ppArgv[2];
+	std::string sSourceFile = ArgHolder::GetNext<std::string>("What source file do you want?");
+	std::string sOutDir =  ArgHolder::GetNext<std::string>("What destination file do you want?");
 
 	// Create questions.
 	std::cout << "Generating questions." << std::endl;
@@ -37,6 +34,7 @@ int main(int _iArgc, const char** _ppArgv) {
 	}
 	output["content"] = questionList;
 
+	std::cout << "Saving to " << sOutDir << "TDQuestion.jet" << std::endl;
 	std::ofstream o(sOutDir + "TDQuestion.jet");
 	o << std::setw(4) << output << std::endl;
 	o.close();

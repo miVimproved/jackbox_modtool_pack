@@ -48,7 +48,6 @@ void TriviaDeath2::Answer::SetText(std::string _sNewText) {
 }
 
 nlohmann::json TriviaDeath2::Answer::ToJson() {
-	std::cout << "Converting Answer to Json." << std::endl;
 	nlohmann::json toReturn;
 	toReturn["correct"] = m_bIsCorrect;
 	toReturn["text"] = m_sText;
@@ -67,7 +66,6 @@ TriviaDeath2::Question::Question(std::vector<std::string> _sTSVLine) {
 }
 
 nlohmann::json TriviaDeath2::Question::ToJson() {
-	std::cout << "Converting Question to Json." << std::endl;
 	nlohmann::json toReturn;
 	
 	// Setup question info.
